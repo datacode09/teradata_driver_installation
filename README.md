@@ -1,8 +1,6 @@
-# teradata_driver_installation
-
 ### Updating Teradata ODBC Driver to Version 17.20
 
-Follow these steps to backup the existing Teradata ODBC driver, remove it, and install the new driver from an RPM package.
+Follow these steps to backup the existing Teradata ODBC driver, remove it, and install the new driver from a `.tar.gz` package.
 
 #### Step 1: Backup Existing Teradata ODBC Driver
 
@@ -20,9 +18,24 @@ Follow these steps to backup the existing Teradata ODBC driver, remove it, and i
     sudo rm -rf /opt/teradata/client
     ```
 
-#### Step 3: Install the New RPM Package
+#### Step 3: Install the New Tar.gz Package
 
-1. **Install the New RPM Package:**
+1. **Extract the `.tar.gz` File:**
+
+    ```sh
+    cd /tmp/teradata_odbc_1720
+    tar -xzvf teradata_driver.tar.gz
+    ```
+
+2. **Locate the Extracted RPM File:**
+
+    ```sh
+    ls /tmp/teradata_odbc_1720
+    ```
+
+    - You should see the extracted RPM file, such as `teradata-odbc-driver-17.20.xx.rpm`.
+
+3. **Install the RPM Package:**
 
     ```sh
     sudo rpm -ivh /tmp/teradata_odbc_1720/teradata-odbc-driver-17.20.xx.rpm
